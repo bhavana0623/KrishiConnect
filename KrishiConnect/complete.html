@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+
+        .confirmation-container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkmark-circle {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #4caf50;
+            position: relative;
+            margin-bottom: 20px;
+            animation: bounce 1s;
+        }
+
+        .checkmark {
+            width: 15px;
+            height: 35px;
+            border-right: 5px solid white;
+            border-bottom: 5px solid white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            transform-origin: center center;
+            animation: draw 0.5s ease-in-out forwards;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes draw {
+            0% {
+                width: 0;
+                height: 0;
+            }
+            100% {
+                width: 15px;
+                height: 35px;
+            }
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .back-home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .back-home-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="checkmark-circle">
+            <div class="checkmark"></div>
+        </div>
+        <h1>Order Confirmed!</h1>
+        <p>Thank you for your purchase. Your order has been successfully placed.</p>
+        <a href="homepage.html" class="back-home-btn">Back to Homepage</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Agricultural Vehicles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .vehicle-display {
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px #00cc00;
+            overflow: hidden;
+            width: calc(33.33% - 40px);
+            transition: transform 0.2s;
+            margin-bottom: 20px;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-info {
+            padding: 15px;
+        }
+        .card-info h2 {
+            margin: 10px 0;
+        }
+        .card-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .rent-now {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .rent-now:hover {
+            background-color: #218838;
+        }
+        .filter-sort-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .filter-sort-section h2 {
+            margin-bottom: 20px;
+        }
+        .filter-sort-section label {
+            margin-right: 10px;
+        }
+        .filter-sort-section select {
+            padding: 5px;
+            margin-right: 20px;
+        }
+
+
+        body {
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #0A710B;
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.logo {
+    height: 60px;
+    margin-right: 0.1rem;
+    width: 60px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-links a {
+    color: #0A710B;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar-links a:hover {
+    background-color: #D8FFD7;
+}
+
+.profile-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+    width: 150px;
+    padding: 10px;
+}
+
+.greeting {
+    display: block;
+    padding: 10px 20px;
+    color: #0A710B;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="images\KrishiConnectLogo.png" alt="Brand Logo" class="logo">
+            <div class="navbar-brand">KrishiConnect</div>
+            <div class="navbar-links">
+                <a href="#home">Features</a>
+                <a href="#about">Community</a>
+                <a href="#services">About Us</a>
+                <a href="register.html" class="register-btn">Register</a>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-icon">
+                        <img src="profile.jpg" alt="Profile" class="profile-img">
+                    </a>
+                    <div class="dropdown-menu">
+                        <span class="greeting">Hi User</span>
+                        <a href="#order">Order</a>
+                        <a href="#profile">Profile</a>
+                        <a href="#settings">Settings</a>
+                        <a href="#logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="rental-options">
+        <h2>Available Vehicles for Rent</h2>
+        <p>Here you can find a list of available agricultural vehicles for rent.</p>
+    </section>
+    
+    <section class="filter-sort-section">
+        <h2>Filter and Sort Options</h2>
+        <form id="filterSortForm">
+            <label for="brands">Brand:</label>
+            <select id="brands" name="brands" onchange="updateCategories()">
+                <option value="">All Brands</option>
+                <option value="Mahindra">Mahindra</option>
+                <option value="John Deere">John Deere</option>
+                <option value="Sonalika">Sonalika</option>
+                <option value="New Holland">New Holland</option>
+                <option value="Swaraj">Swaraj</option>
+                <option value="CLAAS">CLAAS</option>
+                <option value="Kubota">Kubota</option>
+                <!-- Add other brands here -->
+            </select>
+
+            <label for="categories">Category:</label>
+            <select id="categories" name="categories">
+                <option value="">All Categories</option>
+                <!-- Categories will be populated dynamically -->
+            </select>
+
+            <label for="sort">Sort By:</label>
+            <select id="sort" name="sort">
+                <option value="">None</option>
+                <option value="price">Price</option>
+                <option value="distance">Distance</option>
+            </select>
+
+            <button type="button" onclick="applyFilterSort()">Apply</button>
+        </form>
+    </section>
+
+    <section class="vehicle-display">
+        <div class="container">
+            <h1>Available Vehicles</h1>
+            <div class="card-grid" id="vehicleCards">
+                <!-- Tractors -->
+                <div class="card" data-brand="Mahindra" data-category="Tractor" data-price="500" data-distance="5">
+                    <img src="images\tractor1.jpeg" alt="Tractor">
+                    <div class="card-info">
+                        <h2>Tractor</h2>
+                        <p>Brand: Mahindra</p>
+                        <p>Model: Arjun Nova 6005</p>
+                        <p>Price: ₹500</p>
+                        <p><i class="fa-solid fa-arrows-left-right"  style="color: #00cc00;"></i>Distance: 5 km</p>
+                        <button class="rent-now" onclick="redirectToDetailPage('Tractor', 'Mahindra', 'Arjun Nova 6005', '5km')">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="John Deere" data-category="Tractor" data-price="550" data-distance="7">
+                    <img src="images\tractor2.jpeg" alt="Tractor">
+                    <div class="card-info">
+                        <h2>Tractor</h2>
+                        <p>Brand: John Deere</p>
+                        <p>Model: 5050E</p>
+                        <p>Price: ₹550</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 7 km</p>
+                        <a href="display.html" class="rent-now">View Vehicle</a>
+
+                    </div>
+                </div>
+                <div class="card" data-brand="Sonalika" data-category="Tractor" data-price="600" data-distance="10">
+                    <img src="images\tractor3.jpeg" alt="Tractor">
+                    <div class="card-info">
+                        <h2>Tractor</h2>
+                        <p>Brand: Sonalika</p>
+                        <p>Model: DI 745 III</p>
+                        <p>Price: ₹600</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 10 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="New Holland" data-category="Tractor" data-price="650" data-distance="15">
+                    <img src="images\tractor7.jpeg" alt="Tractor">
+                    <div class="card-info">
+                        <h2>Tractor</h2>
+                        <p>Brand: New Holland</p>
+                        <p>Model: 3630 TX</p>
+                        <p>Price: ₹650</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 15 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="Swaraj" data-category="Tractor" data-price="700" data-distance="20">
+                    <img src="images\tractor2.jpeg" alt="Tractor">
+                    <div class="card-info">
+                        <h2>Tractor</h2>
+                        <p>Brand: Swaraj</p>
+                        <p>Model: 744 FE</p>
+                        <p>Price: ₹700</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 20 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                
+                <!-- Threshers -->
+                <div class="card" data-brand="John Deere" data-category="Thresher" data-price="800" data-distance="25">
+                    <img src="images\tractor6.jpeg" alt="Thresher">
+                    <div class="card-info">
+                        <h2>Thresher</h2>
+                        <p>Brand: John Deere</p>
+                        <p>Model: Thresher X1</p>
+                        <p>Price: ₹800</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 25 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="CLAAS" data-category="Thresher" data-price="850" data-distance="30">
+                    <img src="images\tractor7.jpeg" alt="Thresher">
+                    <div class="card-info">
+                        <h2>Thresher</h2>
+                        <p>Brand: CLAAS</p>
+                        <p>Model: Thresher Pro</p>
+                        <p>Price: ₹850</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 30 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="Kubota" data-category="Thresher" data-price="900" data-distance="35">
+                    <img src="images\tractor6.jpeg" alt="Thresher">
+                    <div class="card-info">
+                        <h2>Thresher</h2>
+                        <p>Brand: Kubota</p>
+                        <p>Model: Thresher Master</p>
+                        <p>Price: ₹900</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 35 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="Mahindra" data-category="Thresher" data-price="950" data-distance="40">
+                    <img src="images\tractor7.jpeg" alt="Thresher">
+                    <div class="card-info">
+                        <h2>Thresher</h2>
+                        <p>Brand: Mahindra</p>
+                        <p>Model: Thresher 500</p>
+                        <p>Price: ₹950</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 40 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="New Holland" data-category="Thresher" data-price="1000" data-distance="45">
+                    <img src="images\tractor2.jpeg" alt="Thresher">
+                    <div class="card-info">
+                        <h2>Thresher</h2>
+                        <p>Brand: New Holland</p>
+                        <p>Model: Thresher Max</p>
+                        <p>Price: ₹1000</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 45 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                
+                <!-- Sprayers -->
+                <div class="card" data-brand="Mahindra" data-category="Sprayer" data-price="300" data-distance="5">
+                    <img src="images\tractor6.jpeg" alt="Sprayer">
+                    <div class="card-info">
+                        <h2>Sprayer</h2>
+                        <p>Brand: Mahindra</p>
+                        <p>Model: Spray King</p>
+                        <p>Price: ₹300</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 5 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="John Deere" data-category="Sprayer" data-price="350" data-distance="7">
+                    <img src="images\tractor9.jpeg" alt="Sprayer">
+                    <div class="card-info">
+                        <h2>Sprayer</h2>
+                        <p>Brand: John Deere</p>
+                        <p>Model: Spray Pro</p>
+                        <p>Price: ₹350</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 7 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="Sonalika" data-category="Sprayer" data-price="400" data-distance="10">
+                    <img src="images\tractor7.jpeg" alt="Sprayer">
+                    <div class="card-info">
+                        <h2>Sprayer</h2>
+                        <p>Brand: Sonalika</p>
+                        <p>Model: Spray Max</p>
+                        <p>Price: ₹400</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 10 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="New Holland" data-category="Sprayer" data-price="450" data-distance="15">
+                    <img src="images\tractor9.jpeg" alt="Sprayer">
+                    <div class="card-info">
+                        <h2>Sprayer</h2>
+                        <p>Brand: New Holland</p>
+                        <p>Model: Spray Pro Plus</p>
+                        <p>Price: ₹450</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 15 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="Swaraj" data-category="Sprayer" data-price="500" data-distance="20">
+                    <img src="images\tractor6.jpeg" alt="Sprayer">
+                    <div class="card-info">
+                        <h2>Sprayer</h2>
+                        <p>Brand: Swaraj</p>
+                        <p>Model: Spray Ultra</p>
+                        <p>Price: ₹500</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 20 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                
+                <!-- Seed Drills -->
+                <div class="card" data-brand="Mahindra" data-category="Seed Drill" data-price="600" data-distance="10">
+                    <img src="images\tractor9.jpeg" alt="Seed Drill">
+                    <div class="card-info">
+                        <h2>Seed Drill</h2>
+                        <p>Brand: Mahindra</p>
+                        <p>Model: Drill Master</p>
+                        <p>Price: ₹600</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 10 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="John Deere" data-category="Seed Drill" data-price="650" data-distance="15">
+                    <img src="images\tractor7.jpeg" alt="Seed Drill">
+                    <div class="card-info">
+                        <h2>Seed Drill</h2>
+                        <p>Brand: John Deere</p>
+                        <p>Model: Drill Pro</p>
+                        <p>Price: ₹650</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 15 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="Sonalika" data-category="Seed Drill" data-price="700" data-distance="20">
+                    <img src="images\tractor9.jpeg" alt="Seed Drill">
+                    <div class="card-info">
+                        <h2>Seed Drill</h2>
+                        <p>Brand: Sonalika</p>
+                        <p>Model: Drill Max</p>
+                        <p>Price: ₹700</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 20 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="New Holland" data-category="Seed Drill" data-price="750" data-distance="25">
+                    <img src="images\tractor3.jpeg" alt="Seed Drill">
+                    <div class="card-info">
+                        <h2>Seed Drill</h2>
+                        <p>Brand: New Holland</p>
+                        <p>Model: Drill Pro Plus</p>
+                        <p>Price: ₹750</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 25 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+                <div class="card" data-brand="Swaraj" data-category="Seed Drill" data-price="800" data-distance="30">
+                    <img src="images\tractor9.jpeg" alt="Seed Drill">
+                    <div class="card-info">
+                        <h2>Seed Drill</h2>
+                        <p>Brand: Swaraj</p>
+                        <p>Model: Drill Ultra</p>
+                        <p>Price: ₹800</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 30 km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                </div>
+              <div class="card" data-brand="Brand1" data-category="Rotavator" data-price="600" data-distance="15">
+    <img src="images\tractor7.jpeg" alt="Rotavator">
+    <div class="card-info">
+        <h2>Rotavator</h2>
+        <p>Brand: Brand1</p>
+        <p>Model: Model6</p>
+        <p>Price: ₹600</p>
+        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: 15 km</p>
+        <button class="rent-now">view vehicle</button>
+    </div>
+</div>
+
+
+    <script src="scripts.js"></script>
+    <script>
+        const vehicles = [
+            { brand: "Mahindra", category: "Tractor", model: "Arjun Nova 6005", price: 500, distance: 5 },
+            { brand: "John Deere", category: "Tractor", model: "5050E", price: 550, distance: 7 },
+            { brand: "Sonalika", category: "Tractor", model: "DI 745 III", price: 600, distance: 10 },
+            { brand: "New Holland", category: "Tractor", model: "3630 TX", price: 650, distance: 15 },
+            { brand: "Swaraj", category: "Tractor", model: "744 FE", price: 700, distance: 20 },
+            { brand: "John Deere", category: "Thresher", model: "Thresher X1", price: 800, distance: 25 },
+            { brand: "CLAAS", category: "Thresher", model: "Thresher Pro", price: 850, distance: 30 },
+            { brand: "Kubota", category: "Thresher", model: "Thresher Master", price: 900, distance: 35 },
+            { brand: "Mahindra", category: "Thresher", model: "Thresher 500", price: 950, distance: 40 },
+            { brand: "New Holland", category: "Thresher", model: "Thresher Max", price: 1000, distance: 45 },
+            { brand: "Mahindra", category: "Sprayer", model: "Spray King", price: 300, distance: 5 },
+            { brand: "John Deere", category: "Sprayer", model: "Spray Pro", price: 350, distance: 7 },
+            { brand: "Sonalika", category: "Sprayer", model: "Spray Max", price: 400, distance: 10 },
+            { brand: "New Holland", category: "Sprayer", model: "Spray Pro Plus", price: 450, distance: 15 },
+            { brand: "Swaraj", category: "Sprayer", model: "Spray Ultra", price: 500, distance: 20 },
+            { brand: "Mahindra", category: "Seed Drill", model: "Drill Master", price: 600, distance: 10 },
+            { brand: "John Deere", category: "Seed Drill", model: "Drill Pro", price: 650, distance: 15 },
+            { brand: "Sonalika", category: "Seed Drill", model: "Drill Max", price: 700, distance: 20 },
+            { brand: "New Holland", category: "Seed Drill", model: "Drill Pro Plus", price: 750, distance: 25 },
+            { brand: "Swaraj", category: "Seed Drill", model: "Drill Ultra", price: 800, distance: 30 },
+        ];
+        const categories = [...new Set(vehicles.map(vehicle => vehicle.category))];
+        const categoriesSelect = document.getElementById("categories");
+
+        categories.forEach(category => {
+            const option = document.createElement("option");
+            option.value = category;
+            option.textContent = category;
+            categoriesSelect.appendChild(option);
+        });
+
+        function updateCategories() {
+            const brand = document.getElementById("brands").value;
+            let filteredCategories = vehicles;
+            if (brand) {
+                filteredCategories = vehicles.filter(vehicle => vehicle.brand === brand);
+            }
+            const uniqueCategories = [...new Set(filteredCategories.map(vehicle => vehicle.category))];
+            categoriesSelect.innerHTML = '<option value="">All Categories</option>';
+            uniqueCategories.forEach(category => {
+                const option = document.createElement("option");
+                option.value = category;
+                option.textContent = category;
+                categoriesSelect.appendChild(option);
+            });
+        }
+
+        function applyFilterSort() {
+            const brand = document.getElementById("brands").value;
+            const category = document.getElementById("categories").value;
+            const sort = document.getElementById("sort").value;
+            let filteredVehicles = vehicles;
+
+            if (brand) {
+                filteredVehicles = filteredVehicles.filter(vehicle => vehicle.brand === brand);
+            }
+            if (category) {
+                filteredVehicles = filteredVehicles.filter(vehicle => vehicle.category === category);
+            }
+            if (sort) {
+                filteredVehicles.sort((a, b) => a[sort] - b[sort]);
+            }
+
+            const vehicleCards = document.getElementById("vehicleCards");
+            vehicleCards.innerHTML = '';
+
+            filteredVehicles.forEach(vehicle => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.setAttribute("data-brand", vehicle.brand);
+                card.setAttribute("data-category", vehicle.category);
+                card.setAttribute("data-price", vehicle.price);
+                card.setAttribute("data-distance", vehicle.distance);
+                card.innerHTML = `
+                    <img src="images/₹{vehicle.category.toLowerCase()}1.jpg" alt="${vehicle.category}">
+                    <div class="card-info">
+                        <h2>${vehicle.category}</h2>
+                        <p>Brand: ${vehicle.brand}</p>
+                        <p>Model: ${vehicle.model}</p>
+                        <p>Price: ₹${vehicle.price}</p>
+                        <p><i class="fa-solid fa-arrows-left-right" style="color: #00cc00;"></i>Distance: ${vehicle.distance} km</p>
+                        <button class="rent-now">view vehicle</button>
+                    </div>
+                `;
+                vehicleCards.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

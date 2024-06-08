@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background: #333;
+    color: white;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+    background: #575757;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+}
+
+.main-content section {
+    display: none;
+}
+
+.main-content section.active {
+    display: block;
+}
+
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="file"] {
+    padding: 0;
+}
+
+form button {
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #575757;
+}
+
+
+</style>
+
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="#dashboard" class="active">Dashboard</a></li>
+            <li><a href="#insert-product">Insert Products</a></li>
+            <li><a href="#view-products">View Products</a></li>
+            <li><a href="#insert-category">Insert Categories</a></li>
+            <li><a href="#view-categories">View Categories</a></li>
+            <li><a href="#insert-brand">Insert Brands</a></li>
+            <li><a href="#view-brands">View Brands</a></li>
+            <li><a href="#all-orders">All Orders</a></li>
+            <li><a href="#all-payments">All Payments</a></li>
+            <li><a href="#list-users">List Users</a></li>
+            <li><a href="#logout">Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <section id="dashboard" class="active">
+            <h1>Dashboard</h1>
+            <p>Overview of the site statistics and recent activities.</p>
+        </section>
+        <section id="insert-product">
+            <h1>Insert Products</h1>
+            <form action="insert_product.php" method="post" enctype="multipart/form-data">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" name="product-name" required><br><br>
+                <label for="product-price">Product Price:</label>
+                <input type="text" id="product-price" name="product-price" required><br><br>
+                <label for="product-description">Product Description:</label><br>
+                <textarea id="product-description" name="product-description" required></textarea><br><br>
+                <label for="product-image">Product Image:</label>
+                <input type="file" id="product-image" name="product-image" accept="image/*" required><br><br>
+                <button type="submit">Insert Product</button>
+            </form>
+        </section>
+        <section id="view-products">
+            <h1>View Products</h1>
+            <?php include 'view_products.php'; ?>
+        </section>
+        <section id="insert-category">
+            <h1>Insert Categories</h1>
+            <form action="insert_category.php" method="post">
+                <label for="category-name">Category Name:</label>
+                <input type="text" id="category-name" name="category-name" required><br><br>
+                <button type="submit">Insert Category</button>
+            </form>
+        </section>
+        <section id="view-categories">
+            <h1>View Categories</h1>
+            <?php include 'view_categories.php'; ?>
+        </section>
+        <section id="insert-brand">
+            <h1>Insert Brands</h1>
+            <form action="insert_brand.php" method="post">
+                <label for="brand-name">Brand Name:</label>
+                <input type="text" id="brand-name" name="brand-name" required><br><br>
+                <button type="submit">Insert Brand</button>
+            </form>
+        </section>
+        <section id="view-brands">
+            <h1>View Brands</h1>
+            <?php include 'view_brands.php'; ?>
+        </section>
+        <section id="all-orders">
+            <h1>All Orders</h1>
+            <?php include 'view_orders.php'; ?>
+        </section>
+        <section id="all-payments">
+            <h1>All Payments</h1>
+            <?php include 'view_payments.php'; ?>
+        </section>
+        <section id="list-users">
+            <h1>List Users</h1>
+            <?php include 'view_users.php'; ?>
+        </section>
+        <section id="logout">
+            <h1>Logout</h1>
+            <p>You have been logged out.</p>
+        </section>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.sidebar ul li a');
+            const sections = document.querySelectorAll('.main-content section');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+
+                    sections.forEach(section => section.classList.remove('active'));
+                    links.forEach(link => link.classList.remove('active'));
+
+                    target.classList.add('active');
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

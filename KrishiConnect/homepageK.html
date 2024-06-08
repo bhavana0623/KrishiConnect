@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ಸೇವೆಗಳು ಮತ್ತು ಅಡಿಟಿಪ್ಪಣಿ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow-y: auto;
+}
+
+.services-section {
+    padding: 50px 20px;
+    z-index: 0; /* Lower z-index to make sure abstract shapes are above */
+    position: relative;
+}
+
+.services-section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #151615; /* Changed text color */
+}
+.service-box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background-color: white;
+    width: 30%;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h3 {
+    font-size: 24px;
+    color: #4CAF50;
+    font-weight: bold; /* Added font weight */
+}
+
+.service-item:hover {
+    background-image: linear-gradient(to bottom, #00cc00, #049105);
+    color: white; /* Change text color to white */
+}
+
+.other-services-section {
+    padding: 50px 20px;
+    background-color: white;
+    z-index: 0; /* Lower z-index to make sure abstract shapes are above */
+    position: relative;
+}
+
+.other-services-section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.other-services-box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.other-service-item {
+    background-color: white;
+    width: 30%;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.other-service-item h3 {
+    font-size: 24px;
+    color: black; /* Changed text color to black */
+    font-weight: bold; /* Added font weight */
+}
+
+.other-service-item:hover {
+    background-image: linear-gradient(#00cc00, #049105);
+    color: white; /* Change text color to white */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #0A710B;
+    color: white;
+}
+
+footer a {
+    color: white;
+    margin-right: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    color: #00cc00;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-links a {
+    color: #00cc00;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 80px;
+    transition: background-color 0.3s;
+}
+
+.navbar-links a:hover {
+    background-color: #fff;
+    color: #0A710B;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+}
+
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 5px 10px;
+    color: #0A710B;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #0A710B;
+    color: white;
+}
+
+</style>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="navbar-brand">ಕೃಷಿ ಸಂಪರ್ಕ</div>
+            <div class="navbar-links">
+                <a href="#home">ವೈಶಿಷ್ಟ್ಯಗಳು</a>
+                <a href="#about">ಸಮುದಾಯ</a>
+                <a href="#services">ನಮ್ಮ ಬಗ್ಗೆ</a>
+                <a href="register.html" class="register-btn">ನೋಂದಣಿ</a>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-icon">
+                        <img src="profile.jpg" alt="ಪ್ರೊಫೈಲ್">
+                    </a>
+                    <div class="dropdown-menu">
+                        <span class="greeting">ನಮಸ್ಕಾರ ಬಳಕೆದಾರ</span>
+                        <a href="#order">ಆರ್ಡರ್</a>
+                        <a href="#profile">ಪ್ರೊಫೈಲ್</a>
+                        <a href="#settings">ಸೆಟ್ಟಿಂಗ್ಸ್</a>
+                        <a href="#logout">ಲಾಗ್ ಔಟ್</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        <h1>ಸುಸ್ವಾಗತ ಬಳಕೆದಾರ!</h1>
+        <h1>ರೈತರ ಸಾರಿಗೆ ಅಗತ್ಯಗಳಿಗಾಗಿ ನಮ್ಮ ಒನ್-ಸ್ಟಾಪ್ ಪರಿಹಾರ!</h1>
+    </div>
+
+    <!-- Features Section -->
+    <div class="services-section">
+        <h2>ನಮ್ಮ ಸೇವೆಗಳನ್ನ ಅನ್ವೇಷಿಸಿ</h2>
+        <div class="service-box">
+            <div class="service-item">
+                <h3><a href="#buy" style="text-decoration: none; color: black;">ಕೃಷಿ ವಾಹನಗಳನ್ನು ಖರೀದಿಸಿ</a></h3>
+            </div>
+            <div class="service-item">
+                <h3><a href="#rent" style="text-decoration: none; color: black;">ಕೃಷಿ ವಾಹನಗಳನ್ನು ಬಾಡಿಗೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ</a></h3>
+            </div>
+        </div>
+        <div class="service-box">
+            <div class="service-item">
+                <h3><a href="#sell" style="text-decoration: none; color: black;">ಕೃಷಿ ವಾಹನಗಳನ್ನು ಮಾರಾಟ ಮಾಡಿ</a></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other Services Section -->
+    <div class="other-services-section">
+        <h2>ಇತರ ಸೇವೆಗಳು</h2>
+        <div class="other-services-box">
+            <div class="other-service-item">
+                <h3><a href="#subsidy" style="text-decoration: none; color: black;">ಸಬ್ಸಿಡಿ ಮಾಹಿತಿ</a></h3>
+            </div>
+            <div class="other-service-item">
+                <h3><a href="#weather" style="text-decoration: none; color:black;">ಹವಾಮಾನ ನವೀಕರಣಗಳು</a></h3>
+            </div>
+            <div class="other-service-item">
+                <h3><a href="#community" style="text-decoration: none; color: black;">ಸಮುದಾಯ ವೇದಿಕೆ</a></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <p>ಮಾಚ್ಛಂದಿಸಿ: +123456789</p>
+            <p>ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ:</p>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

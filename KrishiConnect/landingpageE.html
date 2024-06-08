@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <!-- <link rel="stylesheet" href="landingpageE.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #abstract1 {
+            height: 500px;
+            width: 500px;
+            background-color: #D8FFD7;
+            border-radius: 50%;
+            position: fixed;
+            right: -100px;
+            top: -100px;
+            z-index: -1;
+        }
+
+        #abstract2 {
+            height: 150px;
+            width: 150px;
+            background-color: #B3FFB2;
+            border-radius: 50%;
+            position: fixed;
+            right: -10px;
+            top: -40px;
+            z-index: -1;
+        }
+
+        #abstract3 {
+            height: 500px;
+            width: 500px;
+            background-color: #D8FFD7;
+            border-radius: 50%;
+            position: fixed;
+            left: -100px;
+            top: 400px;
+            z-index: -1;
+        }
+
+        #abstract4 {
+            height: 150px;
+            width: 150px;
+            background-color: #B3FFB2;
+            border-radius: 50%;
+            position: fixed;
+            left: -100px;
+            top: 600px;
+            z-index: -1;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            z-index: 1; /* Ensure the navbar is on top */
+            position: sticky;
+            top: 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: #0A710B;
+            font-size: 2.0rem;
+            font-weight: bold;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .logo {
+            height: 60px; /* Adjust height as needed */
+            margin-right: 0.1rem;
+            width: 60px;
+            position: relative;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .navbar-links a {
+            color: #0A710B;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-links a:hover {
+            background-color: #D8FFD7;
+        }
+
+        #tagline {
+            font-size: 65px;
+            color: #0A710B;
+        }
+
+        #hero-p {
+            color: #00cc00;
+            font-size: 40px;
+        }
+
+        #hero-section {
+            margin-top: 100px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #hero-content {
+            max-width: 50%;
+        }
+
+        #hero-section button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #hero-section button:hover {
+            background-color: #45a049;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-width: 500px; /* Adjust as needed */
+        }
+
+        .features-section {
+            padding: 50px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center the text */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature i {
+            margin-bottom: 10px; /* Add some space between icon and text */
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .about-us-section {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .about-us-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .about-us-text {
+            flex: 1;
+        }
+
+        .our-mission {
+            flex: 1;
+        }
+
+        .about-us-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-us-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .our-mission h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .our-mission p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info p {
+            margin-right: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #0A710B;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #D8FFD7;
+        }
+
+        @media (max-width: 768px) {
+            #hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #hero-content {
+                max-width: 100%;
+            }
+
+            .hero-image img {
+                max-width: 100%;
+            }
+
+            .features-container {                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature {
+                width: 80%;
+            }
+
+            .about-us-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-us-content .about-us-text,
+            .about-us-content .our-mission {
+                flex: unset;
+            }
+        }
+
+
+        #feheading1 {
+            text-align: center;
+            color: #0A710B;
+        }
+
+
+        /* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+    background-color: #f9f9f9;
+    color: #0A710B;
+    font-weight: bold;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links in the dropdown */
+.dropdown-content a {
+    color: #0A710B;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #D8FFD7;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #D8FFD7;
+}
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="abstract1"></div>
+    <div id="abstract2"></div>
+    <header>
+        <nav class="navbar">
+            <img src="./images/KrishiConnectLogo.png" alt="Brand Logo" class="logo">
+            <div class="navbar-brand">
+                <span>KrishiConnect</span>
+            </div>
+            <div class="navbar-links">
+                <a href="#features">Features</a>
+                <a href="#community">Community</a>
+                <a href="#about">About Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Language</button>
+                    <div class="dropdown-content">
+                        <a href="landingpageK.html">Kannada</a>
+
+                        <a href="#">English</a>
+                    </div>
+                </div>
+                <a href="registerE.html" class="register-btn">Register</a>
+            </div>
+        </nav>
+    </header>
+   
+    
+    <!-- Hero Section -->
+    <div id="hero-section">
+        <div id="hero-content">
+            <h1 id="tagline">Where Agriculture Meets Mobility.</h1>
+            <p id="hero-p">Buy, Rent, Sell Agricultural Vehicles, Get Weather Updates, and Expert Recommendations - All in One Place</p>
+            <button id="getstarted">Get started</button>
+        </div>
+        <div class="hero-image">
+            <img src="./images/pic 3 edited.png" alt="Hero Image">
+        </div>
+        <div id="abstract3"></div>
+        <div id="abstract4"></div>
+    </div>
+    <!-- Features Section -->
+    <div class="features-section" id="features">
+        <h2>Our Features</h2>
+        <div class="features-container">
+            <div class="feature">
+                <i class="fa-solid fa-tractor" style="color: #00cc00; font-size: 48px;"></i>
+                <h1 id="feheading1">Buy/Rent/Sell Model</h1>
+                <p>Making it easy for farmers to sell what they grow, rent out their tools, or buy what they need directly from others, giving them better control over their farming business.</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-cloud" style="color: #00cc00; font-size: 48px;"></i>
+                <h1 id="feheading1">Weather updates</h1>
+                <p>Stay updated with the latest weather forecasts to plan your farming activities efficiently and maximize productivity.</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-users" style="color: #00cc00; font-size: 48px;"></i>
+
+                <h1 id="feheading1">Subsidy Information</h1>
+                <p>Connect with a community of farmers to share knowledge, experiences, and best practices for a more collaborative approach to agriculture.</p>
+            </div>
+        </div>
+    </div>
+    <!-- About Us Section -->
+    <div class="about-us-section" id="about">
+        <div class="about-us-content">
+            <div class="about-us-text">
+                <h2>About Us</h2>
+                <p>Making it easy for farmers to sell what they grow, rent out their tools, or buy what they need directly from others, giving them better control over their farming business.</p>
+            </div>
+            <div class="our-mission">
+                <h2>Our Mission</h2>
+                <p>Our mission is to empower farmers with a platform that simplifies their business processes, enhances their productivity, and fosters a strong community. We aim to bridge the gap between technology and agriculture to ensure sustainable growth and prosperity for all our users.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div style="text-align: center; padding: 20px; background-color: #0A710B; color: white;">
+            <p>Contact Us: +9934238765</p>
+            <p>Get in touch:</p>
+            <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: white;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+
+    
+    
+</body>
+</html>
+
+               

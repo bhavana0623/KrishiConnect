@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services and Footer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        overflow-y: auto;
+    }
+
+    .services-section {
+        padding: 50px 20px;
+        z-index: 0;
+        position: relative;
+    }
+
+    .services-section h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #151615;
+    }
+
+    .service-box {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .service-item {
+        background-color: white;
+        width: 30%;
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-item h3 {
+        font-size: 24px;
+        color: #4CAF50;
+        font-weight: bold;
+    }
+
+    .service-item:hover {
+        background-image: linear-gradient(to bottom, #00cc00, #049105);
+        color: white;
+    }
+
+    .service-item a {
+        text-decoration: none;
+        color: inherit; /* Inherit color from parent */
+    }
+
+    .other-services-section {
+        padding: 50px 20px;
+        background-color: white;
+        z-index: 0;
+        position: relative;
+    }
+
+    .other-services-section h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .other-services-box {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .other-service-item {
+        background-color: white;
+        width: 30%;
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .other-service-item h3 {
+        font-size: 24px;
+        color: black;
+        font-weight: bold;
+    }
+
+    .other-service-item:hover {
+        background-image: linear-gradient(#00cc00, #049105);
+        color: white;
+    }
+
+    .other-service-item a {
+        text-decoration: none;
+        color: inherit; /* Inherit color from parent */
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #0A710B;
+        color: white;
+    }
+
+    footer a {
+        color: white;
+        margin-right: 10px;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        color: #00cc00;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .navbar-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .navbar-links a {
+        color: #00cc00;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 80px;
+        transition: background-color 0.3s;
+    }
+
+    .navbar-links a:hover {
+        background-color: #fff;
+        color: #0A710B;
+    }
+
+    .profile-dropdown {
+        position: relative;
+    }
+
+    .profile-icon img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        display: none;
+    }
+
+    .profile-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 5px 10px;
+        color: #0A710B;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #0A710B;
+        color: white;
+    }
+</style>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="navbar-brand">KrishiConnect</div>
+            <div class="navbar-links">
+                <a href="#home">Features</a>
+                <a href="#about">Community</a>
+                <a href="#services">About Us</a>
+                <a href="register.html" class="register-btn">Register</a>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-icon">
+                        <img src="profile.jpg" alt="Profile">
+                    </a>
+                    <div class="dropdown-menu">
+                        <span class="greeting">Hi User</span>
+                        <a href="#order">Order</a>
+                        <a href="#profile">Profile</a>
+                        <a href="#settings">Settings</a>
+                        <a href="#logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        <h1>Welcome User!</h1>
+        <h1>Our One-Stop Solution for Farmers' Transportation Needs!</h1>
+    </div>
+
+    <!-- Features Section -->
+    <div class="services-section">
+        <h2>Explore Our Services</h2>
+        <div class="service-box">
+            <div class="service-item">
+                <h3><a href="#buy">Buy Agri Vehicles</a></h3>
+            </div>
+            <div class="service-item">
+                <h3><a href="rentp.html">Rent Agri Vehicles</a></h3>
+            </div>
+        </div>
+        <div class="service-box">
+            <div class="service-item">
+                <h3><a href="#sell">Sell Agri Vehicles</a></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other Services Section -->
+    <div class="other-services-section">
+        <h2>Other Services</h2>
+        <div class="other-services-box">
+            <div class="other-service-item">
+                <h3><a href="#subsidy">Subsidy Information</a></h3>
+            </div>
+            <div class="other-service-item">
+                <h3><a href="#weather">Weather Updates</a></h3>
+            </div>
+            <div class="other-service-item">
+                <h3><a href="#community">Community Forum</a></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <p>Contact Us: +123456789</p>
+            <p>Get in touch:</p>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
